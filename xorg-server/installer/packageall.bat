@@ -1,4 +1,4 @@
-@echo off
+REM @echo off
 
 if "%1"=="nox86" goto skipx86
 
@@ -9,13 +9,7 @@ copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MS
 copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.27.29016\debug_nonredist\x86\Microsoft.VC142.DebugCRT\msvcp140d.dll"
 copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.27.29016\debug_nonredist\x86\Microsoft.VC142.DebugCRT\vcruntime140d.dll"
 
-if exist "C:\Program Files (x86)\NSIS\makensis.exe" (
-  "C:\Program Files (x86)\NSIS\makensis.exe" vcxsrv.nsi
-  "C:\Program Files (x86)\NSIS\makensis.exe" vcxsrv-debug.nsi
-) else (
-  "C:\Program Files\NSIS\makensis.exe" vcxsrv.nsi
-  "C:\Program Files\NSIS\makensis.exe" vcxsrv-debug.nsi
-)
+C:\Users\wu\scoop\apps\nsis\current\Bin\makensis.exe vcxsrv.nsi
 
 :skipx86
 if "%1"=="nox64" goto skipx64
@@ -29,13 +23,8 @@ copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MS
 copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.27.29016\debug_nonredist\x64\Microsoft.VC142.DebugCRT\vcruntime140d.dll"
 copy "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC\14.27.29016\debug_nonredist\x64\Microsoft.VC142.DebugCRT\vcruntime140_1d.dll"
 
-if exist "C:\Program Files (x86)\NSIS\makensis.exe" (
-  "C:\Program Files (x86)\NSIS\makensis.exe" vcxsrv-64.nsi
-  "C:\Program Files (x86)\NSIS\makensis.exe" vcxsrv-64-debug.nsi
-) else (
-  "C:\Program Files\NSIS\makensis.exe" vcxsrv-64.nsi
-  "C:\Program Files\NSIS\makensis.exe" vcxsrv-64-debug.nsi
-)
+C:\Users\wu\scoop\apps\nsis\current\Bin\makensis.exe vcxsrv-64.nsi
+REM C:\Users\wu\scoop\apps\nsis\current\Bin\makensis.exe vcxsrv-64-debug.nsi
 
 del vcruntime140_1.dll
 del vcruntime140_1d.dll
